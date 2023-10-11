@@ -39,7 +39,7 @@ def custom_user_detail(request, pk):
         serializer = CustomUserSerializers(customuser)
         return Response(serializer.data, status=HTTP_202_ACCEPTED)
     elif request.method == 'PUT':
-        serializer = CustomUserSerializers(CustomUser, data=request.data)
+        serializer = CustomUserSerializers(CustomUser, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=HTTP_202_ACCEPTED)
@@ -73,7 +73,7 @@ def category_detail(request, pk):
         serializer = CategorySerializers(category)
         return Response(serializer.data, status=HTTP_202_ACCEPTED)
     elif request.method == 'PUT':
-        serializer = CategorySerializers(category, data=request.data)
+        serializer = CategorySerializers(category, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=HTTP_202_ACCEPTED)
@@ -107,7 +107,7 @@ def post_detail(request, pk):
         serializer = PostSerializers(post)
         return Response(serializer.data, status=HTTP_202_ACCEPTED)
     elif request.method == 'PUT':
-        serializer = PostSerializers(post, data=request.data)
+        serializer = PostSerializers(post, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=HTTP_202_ACCEPTED)
