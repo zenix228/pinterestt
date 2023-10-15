@@ -10,5 +10,5 @@ urlpatterns = [
     path('posts/', post),
     path('posts/<int:pk>/', post_detail),
 
-    path('auth', include('dj_rest_auth.urls'))
+    path('auth/', include('dj_rest_auth.urls'))
 ]
